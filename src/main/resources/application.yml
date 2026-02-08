@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: DistTransaction
+  jta:
+    narayana:
+      transaction-manager-id: tx-manager-1
+
+datasource:
+  payment:
+    xa:
+      data-source-class-name: org.h2.jdbcx.JdbcDataSource
+      properties:
+        url: jdbc:h2:mem:paymentdb;DB_CLOSE_DELAY=-1
+        user: sa
+        password: ""
+
+  inventory:
+    xa:
+      data-source-class-name: org.h2.jdbcx.JdbcDataSource
+      properties:
+        url: jdbc:h2:mem:inventorydb;DB_CLOSE_DELAY=-1
+        user: sa
+        password: ""
