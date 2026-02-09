@@ -6,16 +6,17 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class PaymentRepository {
+public class InventoryRepository {
 
 
     private final JdbcTemplate jdbcTemplate;
 
-    public PaymentRepository(@Qualifier("paymentJdbcTemplate") JdbcTemplate jdbcTemplate) {
+    public InventoryRepository(@Qualifier("inventoryJdbcTemplate") JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void deduct() {
-        jdbcTemplate.update("INSERT INTO payments VALUES ('paid')");
+    public void reserve() {
+        jdbcTemplate.update("INSERT INTO inventory VALUES ('reserved')");
     }
 }
+
